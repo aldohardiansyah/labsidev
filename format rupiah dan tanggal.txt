@@ -1,0 +1,15 @@
+Buat jadiin format angka :
+
+ Rp. {{ number_format($tarifac->jml_tarif , 0, ',', '.') }}
+
+
+
+Buat jadiin tanggal indo :
+
+ {{date('d-m-Y', strtotime($keluhan->tgl_keluhan))}}
+
+
+Bikin Nomer :
+
+            <?php $no = 0;?>
+                <?php $no++ ;?>
