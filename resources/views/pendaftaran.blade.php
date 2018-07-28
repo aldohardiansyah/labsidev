@@ -76,14 +76,14 @@
                                 <div class="col-sm-1"></div>
                                   <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Kewarganegaraan</strong></label>
                                   <div class="col-sm-3">
-                                    <select class="form-control" name="kewarganegaraan">
+                                    <select class="form-control selectdua" name="kewarganegaraan">
                                         <option value="WNI">Warga Negara Indonesia</option>
                                         <option value="WNA">Warga Negara Asing</option>
                                     </select>
                                   </div>
                                   <label for="staticEmail" class="col-sm-1 col-form-label"><strong>Agama</strong></label>
                                   <div class="col-sm-3">
-                                    <select class="form-control" name="agama">
+                                    <select class="form-control selectdua" name="agama">
                                         <option value="Islam">Islam</option>
                                         <option value="Katolik">Katolik</option>
                                         <option value="Kristen">Kristen</option>

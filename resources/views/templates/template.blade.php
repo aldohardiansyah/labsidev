@@ -10,20 +10,24 @@
 
         <title>Laboratorium Sistem Informasi | @yield('title')</title>
 
-        <!-- Bootstrap core CSS -->
+        <!-- CSS Bawaan Bootstrap -->
         <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/aldo.css')}}" rel="stylesheet">
 
-        <!-- Font Awesome -->
+        <!-- Buat Font Awesome -->
         <link href="{{ asset('font-awesome/css/all.css')}}" rel="stylesheet">
+
+        <!-- Buat Menu Select 2 -->
+        <link href="{{ asset('css/select2.min.css')}}" rel="stylesheet">
 
         <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('js/jquery.min.js') }}"></script> {{--jquery 3.3.1--}}
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('js/select2.min.js') }}"></script>
 
     </head>
 
@@ -52,6 +56,11 @@
         </footer>
 
 
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $('.selectdua').select2();
+            });
+    </script>
 
     </body>
 

@@ -33,7 +33,7 @@
                   <form>
                         <div class="form-group row"><!--Separator Busway-->
                           <div class="col-sm-4 text-center">
-                              <img src="{{asset('storage/public/uploads/'.$data->foto)}}" class="rounded float-center ml-4 form-group" alt="" width="200px">
+                              <img src="{{asset('storage/public/uploads/'.$data->foto)}}" class="rounded img-fluid float-center ml-3 form-group" alt="" width="200px">
                           </div>
                           <div class="col-sm-8">
                               <div class="row">
@@ -65,19 +65,12 @@
                                   </div>
                               </div>
                               <div class="row">
-                                  <label for="staticEmail" class="col-sm-3"><strong>ID | No. ID</strong></label>
-                                  <div class="col-sm-6">
-                                      <p>{{$data->jenis_id}} | {{$data->no_id}}</p>
-                                      <hr>
-                                  </div>
-                              </div>
-                              <div class="row">
                                   <label for="staticEmail" class="col-sm-3"><strong>Jenis Kelamin</strong></label>
                                   <div class="col-sm-6">
                                       @if ($data->jenis_kelamin=='L')
                                       <p>Laki-laki</p>
                                       @else
-                                      <p>Laki-laki</p>
+                                      <p>Perempuan</p>
                                       @endif
                                       <hr>
                                   </div>

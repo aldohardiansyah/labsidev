@@ -14,6 +14,21 @@
 
         </div>
         <hr>
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if (session('status'))
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <center>{{ session('status') }}<center>
+          </div>
+          @endif
     </div>
 
     <div class="row">
@@ -25,7 +40,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Informasi</button>
+            <a href="{{route('admin_informasi.add')}}"  class="btn btn-outline-primary">Tambah Data Info</a>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
@@ -46,45 +61,32 @@
                       <th scope="col" width="5%">No.</th>
                       <th scope="col" width="15%">Judul</th>
                       <th scope="col">Isi</th>
-                      <th scope="col">Role</th>
+                      <th scope="col">Kategori</th>
                       <th scope="col" width="15%">Proses</th>
                     </tr>
                   </thead>
                   <tbody id="isi">
-                    <tr>
-                      <td>1</td>
-                      <td>Praktikum Pengganti 4KA22</td>
-                      <td>Sehubungan dengan hari libur pada tanggal 10 Juli 2018, maka untuk praktikum pengganti kelas 4KA22 akan diadakan pada hari Kamis..</td>
-                      <td>Public</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Pendaftaran Asisten Baru PTA 18/19</td>
-                      <td>Telah dibuka Pendaftaran Asisten Baru Laboratorium Sistem Informasi Universitas Gunadarma, Berikut adalah kriteria asisten..</td>
-                      <td>Public</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
+                        <?php $no = 0;?>
+                        @foreach ($data as $data)
+                        <?php $no++ ;?>
+                          <tr>
+                              <td>{{$no}}</td>
+                              <td>{{$data->judul}}</td>
+                              <td>{{$data->isi}}</td>
+                              <td>{{$data->kategori}}</td>
+                              <td align="center">
+                                  <span>
+                                        <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
+                                  </span>
+                                  <span>
+                                        <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
+                                  </span>
+                                  <span>
+                                        <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
+                                  </span>
+                              </td>
+                          </tr>
+                      @endforeach
                   </tbody>
                 </table>
             </div>

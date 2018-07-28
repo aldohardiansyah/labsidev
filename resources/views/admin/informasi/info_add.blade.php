@@ -35,9 +35,9 @@
                       <label for="staticEmail" class="col-form-label"><strong>Jurusan</strong></label>
                           <select class=" selectdua form-control" name="jurusan" required  >
                               <option disabled selected>Pilih Jurusan</option>
-                              @foreach ($datajurusan as $datajurusan)
+                              {{-- @foreach ($datajurusan as $datajurusan)
                                   <option value="{{$datajurusan->id}}">{{$datajurusan->jurusan}}</option>
-                              @endforeach
+                              @endforeach --}}
                           </select>
                     </div><!--Busway Separator-->
                     <div class="form-group"><!--Separator Busway-->

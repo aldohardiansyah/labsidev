@@ -52,6 +52,13 @@ Route::get('/admin/semester', 'admin\AdminSemesterController@index')->name('admi
     Route::post('/admin/semester/delete', 'admin\AdminSemesterController@delete')->name('admin_semester.delete');
 
 Route::get('/admin/kelas', 'admin\AdminKelasController@index')->name('admin_kelas');
+    Route::get('/admin/kelas/add', 'admin\AdminKelasController@add')->name('admin_kelas.add');
+    Route::post('/admin/kelas/add', 'admin\AdminKelasController@insert')->name('admin_kelas.insert');
+    Route::post('/admin/kelas/edit', 'admin\AdminKelasController@edit')->name('admin_kelas.edit');
+    Route::post('/admin/kelas/delete', 'admin\AdminKelasController@delete')->name('admin_kelas.delete');
+    Route::post('/admin/kelas/jurusan/add', 'admin\AdminKelasController@addJurusan')->name('admin_jurusan.add');
+    Route::post('/admin/kelas/jurusan/edit', 'admin\AdminKelasController@editJurusan')->name('admin_jurusan.edit');
+    Route::post('/admin/kelas/jurusan/delete', 'admin\AdminKelasController@deleteJurusan')->name('admin_jurusan.delete');
 
 Route::get('/admin/praktikum', 'admin\AdminPraktikumController@index')->name('admin_praktikum');
     Route::get('/admin/praktikum/add', 'admin\AdminPraktikumController@add')->name('admin_praktikum.add');
@@ -63,6 +70,7 @@ Route::get('/admin/jadwalpraktikum', 'admin\AdminJadwalPraktikumController@index
 Route::get('/admin/jadwalasisten', 'admin\AdminJadwalAsistenController@index')->name('admin_jadwalasisten');
 
 Route::get('/admin/informasi', 'admin\AdminInformasiController@index')->name('admin_informasi');
+Route::get('/admin/informasi/add', 'admin\AdminInformasiController@add')->name('admin_informasi.add');
 
 Route::get('/admin/pendaftaran', 'admin\AdminPendaftaranController@index')->name('admin_pendaftaran');
     Route::get('/admin/pendaftaran/{id}', 'admin\AdminPendaftaranController@detail')->name('admin_pendaftaran.detail');
