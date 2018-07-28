@@ -26,8 +26,6 @@ class Asisten extends Authenticatable
         'status',
         'tempat_lahir',
         'tgl_lahir',
-        'jenis_id',
-        'no_id',
         'jenis_kelamin',
         'kewarganegaraan',
         'agama',

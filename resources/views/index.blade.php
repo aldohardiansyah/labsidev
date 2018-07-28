@@ -61,7 +61,8 @@
       </div>
       @endif
       @if (session('status'))
-      <div class="alert alert-success">
+      <div class="alert alert-dismissible alert-light">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <center>{{ session('status') }}</center>
       </div>
       @endif

@@ -30,7 +30,7 @@
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
             <form class="form-inline my-2 my-lg-0">
-               <input class="form-control mr-sm-2" placeholder="Cari Data" type="text" id="cari">
+               <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search" disabled></i></button>
             </form>
         </div>

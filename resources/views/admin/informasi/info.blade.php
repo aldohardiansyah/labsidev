@@ -1,5 +1,5 @@
 @extends('templates/template')
-@section('title', 'Laboratorium')
+@section('title', 'Data Asisten')
 
 @section('content')
 
@@ -18,19 +18,19 @@
 
     <div class="row">
         <div class="col-lg-12">
-                <h4><center> Laboratorium </center></h4>
+                <h4><center> Informasi </center></h4>
         </div>
     </div>
 
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Data Praktikum</button>
+            <button type="button" class="btn btn-outline-primary">Tambah Informasi</button>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" placeholder="Cari Data" type="text" id="cari">
+              <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -44,19 +44,22 @@
                   <thead>
                     <tr  class="table-primary table-active" align="center">
                       <th scope="col" width="5%">No.</th>
-                      <th scope="col">Kampus</th>
-                      <th scope="col">Laboratorium</th>
-                      <th scope="col">Keterangan</th>
+                      <th scope="col" width="15%">Judul</th>
+                      <th scope="col">Isi</th>
+                      <th scope="col">Role</th>
                       <th scope="col" width="15%">Proses</th>
                     </tr>
                   </thead>
                   <tbody id="isi">
                     <tr>
                       <td>1</td>
-                      <td>Kampus E</td>
-                      <td align="center">531</td>
-                      <td>Letaknya di Gedung 5 Lantai 3 Ruangan 3</td>
+                      <td>Praktikum Pengganti 4KA22</td>
+                      <td>Sehubungan dengan hari libur pada tanggal 10 Juli 2018, maka untuk praktikum pengganti kelas 4KA22 akan diadakan pada hari Kamis..</td>
+                      <td>Public</td>
                       <td align="center">
+                          <span>
+                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
+                          </span>
                           <span>
                                 <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
                           </span>
@@ -67,10 +70,13 @@
                     </tr>
                     <tr>
                       <td>2</td>
-                      <td>Kampus E</td>
-                      <td  align="center">533</td>
-                      <td>Letaknya di Gedung 5 Lantai 3 Ruangan 3</td>
+                      <td>Pendaftaran Asisten Baru PTA 18/19</td>
+                      <td>Telah dibuka Pendaftaran Asisten Baru Laboratorium Sistem Informasi Universitas Gunadarma, Berikut adalah kriteria asisten..</td>
+                      <td>Public</td>
                       <td align="center">
+                          <span>
+                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
+                          </span>
                           <span>
                                 <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
                           </span>
@@ -92,8 +98,8 @@
 <!-- /.container -->
 
 
-<script type="text/javascript">
 
+<script type="text/javascript">
 
     document.getElementById('cari').value = '';
     $(document).ready(function(){

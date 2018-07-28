@@ -5,7 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Semester extends Authenticatable
+use App\Jurusan;
+
+class Kelas extends Authenticatable
 {
     use Notifiable;
 
@@ -15,13 +17,12 @@ class Semester extends Authenticatable
      * @var array
      */
 
-    protected $table = 'semester';
+    protected $table = 'kelas';
     public $timestamps = false;
     protected $fillable = [
-        'semester',
-        'tahun_ajaran',
-        'kode_semester',
-        'status',
+        'kelas',
+        'id_jurusan',
+        'kampus'
 
     ];
 
@@ -33,5 +34,9 @@ class Semester extends Authenticatable
     protected $hidden = [
         'id',
     ];
+
+    public function jurusan() {
+      return $this->hasOne(Jurusan::class,'id','id_jurusan');
+    }
 
 }

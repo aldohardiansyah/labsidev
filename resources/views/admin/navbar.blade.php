@@ -30,7 +30,7 @@
           <a class="nav-link" href="{{route('admin_jadwalasisten')}}"><i class="fa fa-address-card"></i> Jdwl Asisten</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-info"></i> Informasi</a>
+          <a class="nav-link" href="{{route('admin_informasi')}}"><i class="fa fa-info"></i> Informasi</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('admin_pendaftaran')}}"><i class="fa fa-bezier-curve"></i> Pendaftaran</a>

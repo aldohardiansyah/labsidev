@@ -14,6 +14,21 @@
 
         </div>
         <hr>
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if (session('status'))
+          <div class="alert alert-dismissible alert-light">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <center>{{ session('status') }}<center>
+          </div>
+          @endif
     </div>
 
     <div class="row">
@@ -30,7 +45,7 @@
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" placeholder="Cari Data" type="text" id="cari">
+              <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -107,7 +122,8 @@
 <!-- /.container -->
 
 
-@include('admin.praktikum_detail')
+@include('admin.praktikum.praktikum_detail')
+{{-- @include('admin.praktikum.praktikum_add') --}}
 
 <script type="text/javascript">
 

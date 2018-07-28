@@ -27,7 +27,6 @@ class Praktikum extends Authenticatable
         'tgl_selesai',
         'semester',
         'materi',
-
     ];
 
     /**
@@ -38,4 +37,7 @@ class Praktikum extends Authenticatable
     protected $hidden = [
         'id',
     ];
+
+
+
 }

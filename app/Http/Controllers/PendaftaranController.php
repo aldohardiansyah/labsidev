@@ -44,8 +44,6 @@ class PendaftaranController extends Controller
           'npm' => $request['npm'],
           'tempat_lahir' => $request['tempat_lahir'],
           'tgl_lahir' => $request['tgl_lahir'],
-          'jenis_id' => $request['jenis_id'],
-          'no_id' => $request['no_id'],
           'jenis_kelamin' => $request['jenis_kelamin'],
           'kewarganegaraan' => $request['kewarganegaraan'],
           'agama' => $request['agama'],

@@ -14,16 +14,34 @@
 
         </div>
         <hr>
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if (session('status'))
+          <div class="alert alert-primary">
+            <center>{{ session('status') }}<center>
+          </div>
+          @endif
     </div>
 
     <div class="row">
         <div class="col-lg-5">
                 <h4><center> Jurusan </center></h4>
                 <div class="row mt-4">
-                    <div class="col-lg-3">
-                        <button type="button" class="btn btn-outline-primary">Tambah Jurusan</button>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-1">Tambah Data Jurusan</button>
                     </div>
-                    <div class="col-lg-6"></div> <!--separatorbusway-->
+                    <div class="col-lg-3">
+                        <form class="form-inline my-2 my-lg-0">
+                          <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari">
+                        </form>
+                    </div>
                 </div>
                 <hr>
                 <div class="row">
@@ -64,9 +82,14 @@
                 <h4><center> Kelas </center></h4>
                 <div class="row mt-4">
                     <div class="col-lg-3">
-                        <button type="button" class="btn btn-outline-primary">Tambah Kelas</button>
+                        <button type="button" class="btn btn-outline-primary"  data-toggle="modal" data-target="#modal-2">Tambah Data Kelas</button>
                     </div>
-                    <div class="col-lg-6"></div> <!--separatorbusway-->
+                    <div class="col-lg-5"></div> <!--separatorbusway-->
+                    <div class="col-lg-3">
+                        <form class="form-inline my-2 my-lg-0">
+                          <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari2">
+                        </form>
+                    </div>
                 </div>
                 <hr>
                 <div class="row">
@@ -82,7 +105,7 @@
                                   <th scope="col">Proses</th>
                                 </tr>
                               </thead>
-                              <tbody id="isi">
+                              <tbody id="isi2">
                                 <tr>
                                   <td>1</td>
                                   <td>4KA01</td>
@@ -141,6 +164,11 @@
 </div>
 <!-- /.container -->
 
+
+
+@include('admin.kelas.kelas_add')
+@include('admin.kelas.jurusan_add')
+
 <script type="text/javascript">
 
     document.getElementById('cari').value = '';
@@ -153,9 +181,21 @@
              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
            });
          });
+    });
+
+    document.getElementById('cari2').value = '';
+    $(document).ready(function(){
+
+        //Buat Nyari Data Tabel
+         $("#cari2").on("keyup", function() {
+           var value = $(this).val().toLowerCase();
+           $("#isi2 tr").filter(function() {
+             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+           });
+         });
+    });
 
 
-        });
 
 </script>
 

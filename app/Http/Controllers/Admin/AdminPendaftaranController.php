@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
+//MODEL
 use App\Pendaftaranasisten;
 use App\Semester;
 use App\User;
@@ -21,21 +22,32 @@ class AdminPendaftaranController extends Controller
 
     public function index()
     {   $semesteraktif=Semester::where('status',1)->first();//CEKSEMESTER AKTIF
-        $data=Pendaftaranasisten::where('semester',$semesteraktif->kode_semester)->get();
-        return view('admin\pendaftaranasisten',get_defined_vars());
+        $data=Pendaftaranasisten::where('semester',$semesteraktif->kode_semester)->orderBy('status')->orderBy('nama_lengkap')->get();
+        return view('admin.pendaftaran.pendaftaranasisten',get_defined_vars());
     }
+
 
     public function detail($id)
     {   $semesteraktif=Semester::where('status',1)->first();//CEKSEMESTER AKTIF
         $data=Pendaftaranasisten::where('id',$id)->where('semester',$semesteraktif->kode_semester)->first();
-        return view('admin\pendaftaranasisten_detail',get_defined_vars());
+        return view('admin.pendaftaran.pendaftaranasisten_detail',get_defined_vars());
     }
+
+
+    public function detail2($id)
+    {   $semesteraktif=Semester::where('status',1)->first();//CEKSEMESTER AKTIF
+        $data=Pendaftaranasisten::where('id',$id)->where('semester',$semesteraktif->kode_semester)->first();
+        return view('admin.pendaftaran.pendaftaranasisten_detail2',get_defined_vars());
+    }
+
+
     public function reject($id)
     {   $semesteraktif=Semester::where('status',1)->first();//CEKSEMESTER AKTIF
         $data=Pendaftaranasisten::where('id',$id)->first();
         Pendaftaranasisten::where('id',$id)->update(['status' => 'Tidak Diterima']);
-        return redirect()->route('admin_pendaftaran')->with('status', 'Calon asisten dengan nama '.$data->nama_lengkap.' Dinyatakan : Tidak Diterima');
+        return redirect()->route('admin_pendaftaran')->with('status', 'Calon asisten dengan nama '.strtoupper($data->nama_lengkap).' Dinyatakan : Tidak Diterima');
     }
+
 
     public function accept($id)
     {   $semesteraktif=Semester::where('status',1)->first();//CEKSEMESTER AKTIF
@@ -52,13 +64,13 @@ class AdminPendaftaranController extends Controller
         Asisten::create([
           'id_user'=> $dataUser->id,
           'nama_lengkap' => $data->nama_lengkap,
-          'kelas' => $data->kelas,
-          'npm' => $data->npm,
+          'kelas' => strtoupper($data->kelas),
+          'npm' => strtoupper($data->npm),
           'jabatan' => 'Asisten',
           'tempat_lahir' => $data->tempat_lahir,
           'tgl_lahir' => $data->tgl_lahir,
-          'jenis_id' => $data->jenis_id,
-          'no_id' => $data->no_id,
+          // 'jenis_id' => $data->jenis_id,
+          // 'no_id' => $data->no_id,
           'jenis_kelamin' => $data->jenis_kelamin,
           'kewarganegaraan' => $data->kewarganegaraan,
           'agama' => $data->agama,
@@ -72,13 +84,14 @@ class AdminPendaftaranController extends Controller
           'nilai' => $data->nilai,
           'cv' => $data->cv,
           'surat' => $data->surat,
+          'status' => 1,
           'created_at' => Carbon::now()
 
         ]);
 
         Pendaftaranasisten::where('id',$id)->update(['status'=>'Diterima']);
 
-        return redirect()->route('admin_pendaftaran')->with('status', 'Calon asisten dengan nama '.$data->nama_lengkap.' Dinyatakan : Diterima');
+        return redirect()->route('admin_pendaftaran')->with('status', 'Calon asisten dengan nama '. strtoupper($data->nama_lengkap).' Dinyatakan : Diterima');
     }
 
 

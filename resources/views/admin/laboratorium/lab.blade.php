@@ -1,5 +1,5 @@
 @extends('templates/template')
-@section('title', 'Semester')
+@section('title', 'Laboratorium')
 
 @section('content')
 
@@ -14,23 +14,37 @@
 
         </div>
         <hr>
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if (session('status'))
+          <div class="alert alert-primary">
+            <center>{{ session('status') }}<center>
+          </div>
+          @endif
     </div>
 
     <div class="row">
         <div class="col-lg-12">
-                <h4><center> Semester </center></h4>
+                <h4><center> Laboratorium </center></h4>
         </div>
     </div>
 
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Semester</button>
+            <button type="button" class="btn btn-outline-primary">Tambah Data Praktikum</button>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" placeholder="Cari Data" type="text" id="cari">
+              <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -44,20 +58,18 @@
                   <thead>
                     <tr  class="table-primary table-active" align="center">
                       <th scope="col" width="5%">No.</th>
-                      <th scope="col">Tahun Ajaran</th>
-                      <th scope="col">Semester</th>
-                      <th scope="col">Kode Semester</th>
-                      <th scope="col">Status</th>
-                      <th scope="col" width="10%">Proses</th>
+                      <th scope="col">Kampus</th>
+                      <th scope="col">Laboratorium</th>
+                      <th scope="col">Keterangan</th>
+                      <th scope="col" width="15%">Proses</th>
                     </tr>
                   </thead>
                   <tbody id="isi">
                     <tr>
                       <td>1</td>
-                      <td>2017/2018</td>
-                      <td>Ganjil</td>
-                      <td>PTA 2017/2018</td>
-                      <td>Aktif</td>
+                      <td>Kampus E</td>
+                      <td align="center">531</td>
+                      <td>Letaknya di Gedung 5 Lantai 3 Ruangan 3</td>
                       <td align="center">
                           <span>
                                 <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
@@ -68,11 +80,10 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>1</td>
-                      <td>2017/2018</td>
-                      <td>Ganjil</td>
-                      <td>PTA 2017/2018</td>
-                      <td>Aktif</td>
+                      <td>2</td>
+                      <td>Kampus E</td>
+                      <td  align="center">533</td>
+                      <td>Letaknya di Gedung 5 Lantai 3 Ruangan 3</td>
                       <td align="center">
                           <span>
                                 <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
@@ -95,8 +106,8 @@
 <!-- /.container -->
 
 
-
 <script type="text/javascript">
+
 
     document.getElementById('cari').value = '';
     $(document).ready(function(){

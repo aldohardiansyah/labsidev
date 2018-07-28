@@ -24,27 +24,28 @@
           </div>
           @endif
           @if (session('status'))
-          <div class="alert alert-primary">
-            <center><strong> {{ session('status') }} </strong><center>
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <center>{{ session('status') }}<center>
           </div>
           @endif
     </div>
 
     <div class="row">
         <div class="col-lg-12">
-                <h4><center> Data Pendaftaran Asisten </center></h4>
+                <h4><center> Asisten </center></h4>
         </div>
     </div>
 
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            {{-- <button type="button" class="btn btn-outline-primary">Pendaftaran Asisten</button> --}}
+            <button type="button" class="btn btn-outline-primary">Tambah Data Asisten</button>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" placeholder="Cari Data" type="text" id="cari">
+              <input class="form-control mr-sm-2" placeholder="Cari/Sortir Data" type="text" id="cari">
               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -61,7 +62,8 @@
                       <th scope="col" width="15%">NPM</th>
                       <th scope="col">Nama</th>
                       <th scope="col">Kelas</th>
-                      <th scope="col">No. Telp</th>
+                      <th scope="col">Jabatan</th>
+                      <th scope="col">Awal Bertugas</th>
                       <th scope="col" width="15%">Proses</th>
                     </tr>
                   </thead>
@@ -74,27 +76,28 @@
                       <td>{{$data->npm}}</td>
                       <td>{{$data->nama_lengkap}}</td>
                       <td>{{$data->kelas}}</td>
-                      <td>{{$data->no_tlp}}</td>
-                      @if ($data->status=="Diterima")
-                          <td align="center">
-                              <span>
-                                Diterima
-                              </span>
-                          </td>
-                      @elseif ($data->status=="Tidak Diterima")
-                          <td align="center">
-                              <span>
-                                Tidak Diterima
-                              </span>
-                          </td>
-                      @else
-                          <td align="center">
-                              <span>
-                                <a href="{{route('admin_pendaftaran.detail', $data->id)}}" class="btn btn-primary  btn-xsm">Diterima/Tidak</a>
-                              </span>
-                          </td>
-                      @endif
-
+                      <td>{{$data->jabatan}}</td>
+                      <td>{{$data->semester}}</td>
+                      <td align="center">
+                          <span>
+                                <a href="{{route('admin_asisten.detail', $data->id)}}" class="btn btn-primary  btn-xsm"> <i class="fa fa-eye"></i></a>
+                          </span>
+                          <span>
+                              <button class="btn btn-success btn-xsm view" type="submit"
+                              data-id="{{ $data->id }}"
+                              data-npm="{{ $data->npm }}"
+                              data-namalengkap="{{ $data->nama_lengkap }}"
+                              data-jabatan="{{ $data->jabatan }}"
+                              data-toggle="modal" data-target="#modal-1">
+                              <i class="fa fa-pencil-alt"></i></button>
+                          </span>
+                          <span>
+                              <button class="btn btn-danger btn-xsm delete" type="button"
+                              data-id="{{ $data->id }}"
+                              data-toggle="modal" data-target="#modal-3">
+                                <i class="fa fa-trash-alt"></i></button>
+                          </span>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -111,6 +114,9 @@
 
 
 
+@include('admin.asisten.asisten_edit')
+@include('admin.asisten.asisten_delete')
+
 <script type="text/javascript">
 
     document.getElementById('cari').value = '';
@@ -126,6 +132,21 @@
 
 
         });
+
+
+    $(document).on('click', '.view', function() {
+      $('#id').val($(this).data('id'));
+      $('#npm').val($(this).data('npm'));
+      $('#namalengkap2').val($(this).data('namalengkap'));
+      $('#namalengkap').val($(this).data('namalengkap'));
+      $('#jabatan').val($(this).data('jabatan'));;
+    });
+
+
+    //Delete Modal Dialog
+    $(document).on('click', '.delete', function() {
+      $('#iddata').val($(this).data('id'));
+    });
 
 </script>
 

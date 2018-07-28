@@ -58,21 +58,6 @@
                             </div><!--Busway Separator-->
                             <div class="form-group row"><!--Separator Busway-->
                               <div class="col-sm-1"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Jenis ID</strong></label>
-                              <div class="col-sm-3">
-                                <select class="form-control" name="jenis_id">
-                                    <option value="KTP">KTP</option>
-                                    <option value="SIM">SIM</option>
-                                    <option value="Passport">Passport</option>
-                                </select>
-                              </div>
-                              <label for="staticEmail" class="col-sm-1 col-form-label"><strong>No. ID</strong></label>
-                              <div class="col-sm-3">
-                                  <input class="form-control"  placeholder="Masukan no. ID" name="no_id">
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                              <div class="col-sm-1"></div>
                               <label for="staticEmail" class="col-sm-2"><strong>Jenis Kelamin</strong></label>
                               <div class="col-sm-2">
                                   <label class="form-check form-check-label">
