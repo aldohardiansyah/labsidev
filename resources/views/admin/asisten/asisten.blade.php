@@ -117,10 +117,11 @@
 @include('admin.asisten.asisten_edit')
 @include('admin.asisten.asisten_delete')
 
+
 <script type="text/javascript">
 
-    document.getElementById('cari').value = '';
-    $(document).ready(function(){
+document.getElementById('cari').value = '';
+$(document).ready(function(){
 
         //Buat Nyari Data Tabel
          $("#cari").on("keyup", function() {
@@ -128,25 +129,26 @@
            $("#isi tr").filter(function() {
              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
            });
-         });
-
-
         });
 
 
-    $(document).on('click', '.view', function() {
-      $('#id').val($(this).data('id'));
-      $('#npm').val($(this).data('npm'));
-      $('#namalengkap2').val($(this).data('namalengkap'));
-      $('#namalengkap').val($(this).data('namalengkap'));
-      $('#jabatan').val($(this).data('jabatan'));;
-    });
+        //Parsing Data Ke Modal View
+        $(document).on('click', '.view', function() {
+          $('#id').val($(this).data('id'));
+          $('#npm').val($(this).data('npm'));
+          $('#namalengkap2').val($(this).data('namalengkap'));
+          $('#namalengkap').val($(this).data('namalengkap'));
+          $('#jabatan').val($(this).data('jabatan'));;
+        });
 
 
-    //Delete Modal Dialog
-    $(document).on('click', '.delete', function() {
-      $('#iddata').val($(this).data('id'));
-    });
+        //Delete Modal Dialog
+        $(document).on('click', '.delete', function() {
+          $('#iddata').val($(this).data('id'));
+        });
+
+
+});
 
 </script>
 

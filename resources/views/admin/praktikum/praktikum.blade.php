@@ -24,7 +24,7 @@
           </div>
           @endif
           @if (session('status'))
-          <div class="alert alert-dismissible alert-light">
+          <div class="alert alert-dismissible alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <center>{{ session('status') }}<center>
           </div>
@@ -40,7 +40,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Data Praktikum</button>
+            <a href="{{route('admin_praktikum.add')}}"  class="btn btn-outline-primary">Tambah Data Praktikum</a>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
@@ -62,10 +62,10 @@
                       <th scope="col" width="10%">Kode Mata Kuliah</th>
                       <th scope="col">Mata Kuliah</th>
                       <th scope="col">Kode Praktikum</th>
-                      <th scope="col">Kelas</th>
+                      <th scope="col">Tingkat</th>
+                      <th scope="col">Semester</th>
                       <th scope="col">Tanggal Mulai</th>
                       <th scope="col">Tanggal Selesai</th>
-                      <th scope="col">Semester</th>
                       {{-- <th scope="col">Materi</th> --}}
                       <th scope="col" width="15%">Proses</th>
                     </tr>
@@ -80,31 +80,23 @@
                             <td>{{$data->matkul}}</td>
                             <td>{{$data->kode_praktikum}}</td>
                             <td>{{$data->tingkat}}</td>
+                            <td>{{$data->semester}}</td>
                             <td>{{date('d-m-Y', strtotime($data->tgl_mulai))}}</td>
                             <td>{{date('d-m-Y', strtotime($data->tgl_selesai))}}</td>
-                            <td>{{$data->semester}}</td>
                             {{-- <td>{{$data->materi}}</td> --}}
                             <td align="center">
                                 <span>
-                                    <button class="btn btn-primary btn-xsm view" type="submit"
+                                    <a href="{{route('admin_praktikum.detail', $data->id)}}" class="btn btn-primary btn-xsm"><i class="fa fa-eye"></i></a>
+
+                                </span>
+                                <span>
+                                      <a href="{{route('admin_praktikum.update', $data->id)}}" class="btn btn-success btn-xsm"><i class="fa fa-pencil-alt"></i></a>
+                                </span>
+                                <span>
+                                    <button class="btn btn-danger btn-xsm delete" type="button"
                                     data-id="{{ $data->id }}"
-                                    data-kodematkul="{{ $data->kode_matkul }}"
-                                    data-matkul="{{ $data->matkul }}"
-                                    data-kodepraktikum="{{ $data->kode_praktikum }}"
-                                    data-jurusan="{{ $data->jurusan }}"
-                                    data-tingkat="{{ $data->tingkat }}"
-                                    data-tglmulai="{{ $data->tgl_mulai }}"
-                                    data-tglselesai="{{ $data->tgl_selesai }}"
-                                    data-semester="{{ $data->semester }}"
-                                    data-materi="{{ $data->materi }}"
-                                    data-toggle="modal" data-target="#modal-1">
-                                    <i class="fa fa-eye"></i></button>
-                                </span>
-                                <span>
-                                      <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                                </span>
-                                <span>
-                                      <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
+                                    data-toggle="modal" data-target="#modal-3">
+                                      <i class="fa fa-trash-alt"></i></button>
                                 </span>
                             </td>
                           </tr>
@@ -121,14 +113,16 @@
 </div>
 <!-- /.container -->
 
-
-@include('admin.praktikum.praktikum_detail')
+{{--
+@include('admin.praktikum.praktikum_detail') --}}
+@include('admin.praktikum.praktikum_delete')
 {{-- @include('admin.praktikum.praktikum_add') --}}
+
 
 <script type="text/javascript">
 
-    document.getElementById('cari').value = '';
-    $(document).ready(function(){
+document.getElementById('cari').value = '';
+$(document).ready(function(){
 
         //Buat Nyari Data Tabel
          $("#cari").on("keyup", function() {
@@ -138,21 +132,28 @@
            });
          });
 
-
+         //Parsing Data Ke Modal View
+        $(document).on('click', '.view', function() {
+          $('#id').val($(this).data('id'));
+          $('#kodematkul').val($(this).data('kodematkul'));
+          $('#matkul').val($(this).data('matkul'));
+          $('#kodepraktikum').val($(this).data('kodepraktikum'));
+          $('#jurusan').val($(this).data('jurusan'));
+          $('#tingkat').val($(this).data('tingkat'));
+          $('#tglmulai').val($(this).data('tglmulai'));
+          $('#tglselesai').val($(this).data('tglselesai'));
+          $('#semester').val($(this).data('semester'));
+          $('#materi').val($(this).data('materi'));
         });
 
-    $(document).on('click', '.view', function() {
-      $('#id').val($(this).data('id'));
-      $('#kodematkul').val($(this).data('kodematkul'));
-      $('#matkul').val($(this).data('matkul'));
-      $('#kodepraktikum').val($(this).data('kodepraktikum'));
-      $('#jurusan').val($(this).data('jurusan'));
-      $('#tingkat').val($(this).data('tingkat'));
-      $('#tglmulai').val($(this).data('tglmulai'));
-      $('#tglselesai').val($(this).data('tglselesai'));
-      $('#semester').val($(this).data('semester'));
-      $('#materi').val($(this).data('materi'));
-    });
+
+        //Delete Modal Dialog
+        $(document).on('click', '.delete', function() {
+          $('#iddata').val($(this).data('id'));
+        });
+
+
+});
 
 </script>
 

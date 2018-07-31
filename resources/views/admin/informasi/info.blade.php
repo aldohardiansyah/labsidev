@@ -40,7 +40,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <a href="{{route('admin_informasi.add')}}"  class="btn btn-outline-primary">Tambah Data Info</a>
+            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-addinfo">Tambah Data Info</button>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
@@ -100,11 +100,14 @@
 <!-- /.container -->
 
 
+@include('admin.informasi.info_add')
+
 
 <script type="text/javascript">
 
-    document.getElementById('cari').value = '';
-    $(document).ready(function(){
+document.getElementById('cari').value = '';
+$(document).ready(function(){
+
 
         //Buat Nyari Data Tabel
          $("#cari").on("keyup", function() {
@@ -115,7 +118,7 @@
          });
 
 
-        });
+});
 
 </script>
 

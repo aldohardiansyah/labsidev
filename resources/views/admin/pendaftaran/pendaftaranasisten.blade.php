@@ -79,7 +79,7 @@
                       @if ($data->status=="Diterima")
                           <td align="center">
                               <span>
-                                <a href="{{route('admin_pendaftaran.detail2', $data->id)}}" class="btn btn-light  btn-xsm">Diterima</a>
+                                <a href="{{route('admin_pendaftaran.detail2', $data->id)}}" class="btn btn-light btn-xsm">Diterima</a>
                               </span>
                           </td>
                       @elseif ($data->status=="Tidak Diterima")

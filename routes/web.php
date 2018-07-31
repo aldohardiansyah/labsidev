@@ -1,23 +1,28 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+RULES BY ALDO HARDIANSYAH
+Detail => Open Detail Data Page
+Add => Open Create Data Page
+Insert => Insert Data to Database
+Update => Open Edit Data Page
+Edit => Update Data on Database
+Drop => Open Delete Data Page
+Delete => Delete Data from Database
 */
+
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+
 Auth::routes();
 
 Route::get('/home','BerandaController@index')->name('home');
+
+Route::get('/admin/login','BerandaController@index')->name('home');
+
 
 
 
@@ -33,7 +38,7 @@ Route::get('/peraturan', 'PeraturanController@index')->name('peraturan');
 Route::get('/laboratorium', 'LaboratoriumController@index')->name('laboratorium');
 
 Route::get('/pendaftaran', 'PendaftaranController@index')->name('pendaftaran');
-     Route::post('/pendaftaran', 'PendaftaranController@save')->name('pendaftaran.save');
+     Route::post('/pendaftaran', 'PendaftaranController@insert')->name('pendaftaran.insert');
 
 
 
@@ -47,7 +52,7 @@ Route::get('/admin/asisten', 'admin\AdminAsistenController@index')->name('admin_
     Route::post('/admin/asisten/delete', 'admin\AdminAsistenController@delete')->name('admin_asisten.delete');
 
 Route::get('/admin/semester', 'admin\AdminSemesterController@index')->name('admin_semester');
-    Route::post('/admin/semester/add', 'admin\AdminSemesterController@add')->name('admin_semester.add');
+    Route::post('/admin/semester/add', 'admin\AdminSemesterController@insert')->name('admin_semester.insert');
     Route::post('/admin/semester/edit', 'admin\AdminSemesterController@edit')->name('admin_semester.edit');
     Route::post('/admin/semester/delete', 'admin\AdminSemesterController@delete')->name('admin_semester.delete');
 
@@ -62,6 +67,11 @@ Route::get('/admin/kelas', 'admin\AdminKelasController@index')->name('admin_kela
 
 Route::get('/admin/praktikum', 'admin\AdminPraktikumController@index')->name('admin_praktikum');
     Route::get('/admin/praktikum/add', 'admin\AdminPraktikumController@add')->name('admin_praktikum.add');
+    Route::get('/admin/praktikum/detail{id}', 'admin\AdminPraktikumController@detail')->name('admin_praktikum.detail');
+    Route::post('/admin/praktikum/insert', 'admin\AdminPraktikumController@insert')->name('admin_praktikum.insert');
+    Route::get('/admin/praktikum/update/{id}', 'admin\AdminPraktikumController@update')->name('admin_praktikum.update');
+    Route::post('/admin/praktikum/edit', 'admin\AdminPraktikumController@edit')->name('admin_praktikum.edit');
+    Route::post('/admin/praktikum/delete', 'admin\AdminPraktikumController@delete')->name('admin_praktikum.delete');
 
 Route::get('/admin/laboratorium', 'admin\AdminLaboratoriumController@index')->name('admin_laboratorium');
 
@@ -70,7 +80,8 @@ Route::get('/admin/jadwalpraktikum', 'admin\AdminJadwalPraktikumController@index
 Route::get('/admin/jadwalasisten', 'admin\AdminJadwalAsistenController@index')->name('admin_jadwalasisten');
 
 Route::get('/admin/informasi', 'admin\AdminInformasiController@index')->name('admin_informasi');
-Route::get('/admin/informasi/add', 'admin\AdminInformasiController@add')->name('admin_informasi.add');
+    Route::post('/admin/informasi/insert', 'admin\AdminInformasiController@insert')->name('admin_informasi.insert');
+
 
 Route::get('/admin/pendaftaran', 'admin\AdminPendaftaranController@index')->name('admin_pendaftaran');
     Route::get('/admin/pendaftaran/{id}', 'admin\AdminPendaftaranController@detail')->name('admin_pendaftaran.detail');

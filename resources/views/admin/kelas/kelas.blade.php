@@ -166,57 +166,66 @@
 </div>
 <!-- /.container -->
 
+@include('admin.kelas.kelas_edit')
 @include('admin.kelas.kelas_delete')
 @include('admin.kelas.jurusan_add')
 @include('admin.kelas.jurusan_edit')
 @include('admin.kelas.jurusan_delete')
 
 
+
+
 <script type="text/javascript">
 
-    document.getElementById('cari').value = '';
-    $(document).ready(function(){
+document.getElementById('cari').value = '';
+document.getElementById('cari2').value = '';
+$(document).ready(function(){
 
-        //Buat Nyari Data Tabel
+        //Buat Nyari Data Tabel Kelas
          $("#cari").on("keyup", function() {
            var value = $(this).val().toLowerCase();
            $("#isi tr").filter(function() {
              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
            });
          });
-    });
 
-    document.getElementById('cari2').value = '';
-    $(document).ready(function(){
 
-        //Buat Nyari Data Tabel
+        //Buat Nyari Data Tabel Jurusan
          $("#cari2").on("keyup", function() {
            var value = $(this).val().toLowerCase();
            $("#isi2 tr").filter(function() {
              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
            });
          });
-    });
 
 
-    //Delete Modal Dialog
-    $(document).on('click', '.deletekelas', function() {
-      $('#iddata2').val($(this).data('id'));
-    });
+        //Delete Modal Dialog
+        $(document).on('click', '.deletekelas', function() {
+          $('#iddata2').val($(this).data('id'));
+        });
+        //Edit Modal Dialog
+        $(document).on('click', '.editkelas', function() {
+          $('#editkelasid').val($(this).data('id'));
+          $('#editkelaskelas').val($(this).data('kelas'));
+          $('#editkelasjurusan').val($(this).data('jurusan'));
+          $('#editkelaskampus').val($(this).data('kampus'));
+        });
 
-    //Edit Modal Dialog
-    $(document).on('click', '.editjurusan', function() {
-      $('#editjurusanid').val($(this).data('id'));
-      $('#editjurusankode').val($(this).data('kode'));
-      $('#editjurusanjurusan').val($(this).data('jurusan'));
-      $('#editjurusanfakultas').val($(this).data('fakultas'));
-    });
-    
-    //Delete Modal Dialog
-    $(document).on('click', '.deletejurusan', function() {
-      $('#iddata').val($(this).data('id'));
-    });
 
+        //Delete Modal Dialog
+        $(document).on('click', '.deletejurusan', function() {
+          $('#iddata').val($(this).data('id'));
+        });
+        //Edit Modal Dialog
+        $(document).on('click', '.editjurusan', function() {
+          $('#editjurusanid').val($(this).data('id'));
+          $('#editjurusankode').val($(this).data('kode'));
+          $('#editjurusanjurusan').val($(this).data('jurusan'));
+          $('#editjurusanfakultas').val($(this).data('fakultas'));
+        });
+
+
+});
 
 
 </script>

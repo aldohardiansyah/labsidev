@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Jurusan;
+
 class Praktikum extends Authenticatable
 {
     use Notifiable;
@@ -21,12 +23,12 @@ class Praktikum extends Authenticatable
         'kode_matkul',
         'matkul',
         'kode_praktikum',
-        'jurusan',
+        'id_jurusan',
         'tingkat',
         'tgl_mulai',
         'tgl_selesai',
-        'semester',
         'materi',
+        'semester'
     ];
 
     /**
@@ -37,6 +39,11 @@ class Praktikum extends Authenticatable
     protected $hidden = [
         'id',
     ];
+
+    public function jurusan() {
+      return $this->hasOne(Jurusan::class,'id','id_jurusan');
+    }
+
 
 
 

@@ -19,7 +19,7 @@ class AdminSemesterController extends Controller
     }
 
 
-    public function add(Request $request)
+    public function insert(Request $request)
     {
         $updateaktif=Semester::where('status',1)->update(['status'=>0]);
         $tahun_ajaran = $request['tahun_ajaran'];

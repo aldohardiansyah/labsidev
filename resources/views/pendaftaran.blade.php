@@ -24,7 +24,7 @@
                   <div class="card-header" align="center">Form Pendaftaran Asisten Laboratorium Sistem Informasi</div>
                   <div class="card-body">
                       <div class="form-group mt-3">
-                      <form method="POST" action="{{ route('pendaftaran.save') }}" enctype="multipart/form-data">
+                      <form method="POST" action="{{ route('pendaftaran.insert') }}" enctype="multipart/form-data">
                           @csrf
                         <fieldset>
                             <div class="form-group row"><!--Separator Busway-->

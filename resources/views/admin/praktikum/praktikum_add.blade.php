@@ -26,95 +26,93 @@
         <div class="mt-4 mb-2">
             <div class="col-lg-12">
                 <div class="card border-secondary mb-3">
-                  <div class="card-header" align="center">Form Pendaftaran Asisten Laboratorium Sistem Informasi</div>
+                  <div class="card-header" align="center">Data  Praktikum</div>
                   <div class="card-body">
                       <div class="form-group mt-3">
-                      <form method="POST" action="{{ route('pendaftaran.save') }}" enctype="multipart/form-data">
+                      <form method="POST" action="{{ route('admin_praktikum.insert') }}" enctype="multipart/form-data">
                           @csrf
                         <fieldset>
+
                             <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Kode Mata Kuliah</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Mata Kuliah</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Kode Praktikum</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Jurusan</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tingkat</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Mulai</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Selesai</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Semester</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                              <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Materi</strong></label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" placeholder="Masukan Nama Lengap"  name="nama_lengkap" required>
-                              </div>
-                            </div><!--Busway Separator-->
-                            <br>
-                            <div class="form-group row"><!--Separator Busway-->
-                                <div class="col-sm-2"></div>
-                                <label for="staticEmail" class="col-sm-2"><strong>Surat Lamaran</strong></label>
+                                <div class="col-sm-1"></div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Kode Mata Kuliah</strong></label>
                                 <div class="col-sm-3">
-                                    <input class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" type="file" name="surat">
-                                    <small id="fileHelp" class="form-text text-muted"><strong> Fomat File PDF, ukuran max 1mb</strong></small>
+                                    <input class="form-control" placeholder="Masukan Kode Mata Kuliah"  name="kode_matkul" required>
+                                    <small id="fileHelp" class="form-text text-muted">Kode Mata Kuliah Praktikum</small>
                                 </div>
-                                <label for="staticEmail" class="col-sm-1"><strong>Nilai</strong></label>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Kode Praktikum</strong></label>
                                 <div class="col-sm-3">
-                                  <input class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" type="file" name="nilai">
-                                  <small id="fileHelp" class="form-text text-muted"><strong>Fomat File PDF, ukuran max 1mb</strong></small>
+                                    <input class="form-control" placeholder="Masukan Kode Praktikum"  name="kode_praktikum" required>
+                                    <small id="fileHelp" class="form-text text-muted">ex: PBW, SBP, IMK</small>
+                                </div>
+                            </div><!--Busway Separator-->
+
+                            <div class="form-group row"><!--Separator Busway-->
+                                <div class="col-sm-1"></div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Nama Mata Kuliah</strong></label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" placeholder="Masukan Nama Mata Kuliah"  name="matkul" required>
+                                </div>
+                            </div><!--Busway Separator-->
+
+                            <div class="form-group row"><!--Separator Busway-->
+                                <div class="col-sm-1"></div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tingkat</strong></label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" placeholder="Masukan Tingkat"  name="tingkat" required>
+                                    <small id="fileHelp" class="form-text text-muted">ex : 1KA, 2DB, 3KA</small>
+
+                                </div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Jurusan</strong></label>
+                                <div class="col-sm-3">
+                                    <select class="form-control select" name="jurusan">
+                                        <option value="" disabled selected>Pilih Jurusan</option>
+                                        @foreach ($jurusan as $jurusan)
+                                        <option value="{{$jurusan->id}}">{{$jurusan->jurusan}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div><!--Busway Separator-->
+
+                            <div class="form-group row"><!--Separator Busway-->
+                                <div class="col-sm-1"></div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Semester</strong></label>
+                                <div class="col-sm-3">
+                                    <select class="form-control select" name="semester">
+                                        <option value="" disabled selected>Pilih Semester</option>
+                                        <option value="PTA"> Ganjil </option>
+                                        <option value="ATA"> Genap </option>
+                                    </select>
+                                    <small id="fileHelp" class="form-text text-muted">Semester praktikum berlangsung</small>
+                                </div>
+                            </div><!--Busway Separator-->
+
+                            <div class="form-group row"><!--Separator Busway-->
+                                <div class="col-sm-1"></div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Mulai</strong></label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" type="date"  id="example-date-input"  name="tgl_mulai" placeholder="Masukan Tanggal Mulai">
+                                </div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Selesai</strong></label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" type="date"  id="example-date-input"  name="tgl_selesai" placeholder="Masukan Tanggal Selesai">
+                                </div>
+                            </div><!--Busway Separator-->
+
+                            <div class="form-group row"><!--Separator Busway-->
+                                <div class="col-sm-1"></div>
+                                <label for="staticEmail" class="col-sm-2 col-form-label"><strong> Link Materi Praktikum</strong></label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" placeholder="Masukan Link Materi Praktikum"  name="materi" required>
+                                    <small id="fileHelp" class="form-text text-muted">Link materi praktikum dari data drive Labsi</small>
                                 </div>
                             </div><!--Busway Separator-->
 
                             <hr class="mt-5">
                             <center>
-                                <small id="fileHelp" class="form-text text-muted">Periksa kembali data anda sebelum submit formulir, <strong>formulir yang telah disubmit tidak dapat diubah.</strong></small>
+                                <small id="fileHelp" class="form-text text-muted">Periksa kembali kelengkapan data sebelum disimpan! </small>
                                 <br>
-                                <button type="submit" class="btn btn-primary">Submit Pendaftaran</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </center>
                         </fieldset>
                         </form>

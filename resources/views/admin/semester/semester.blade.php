@@ -118,8 +118,8 @@
 
 <script type="text/javascript">
 
-    document.getElementById('cari').value = '';
-    $(document).ready(function(){
+document.getElementById('cari').value = '';
+$(document).ready(function(){
 
         //Buat Nyari Data Tabel
          $("#cari").on("keyup", function() {
@@ -129,9 +129,7 @@
            });
          });
 
-
-        });
-
+        //Parsing Data Ke Edit
         $(document).on('click', '.edit', function() {
           $('#id').val($(this).data('id'));
           $('#kode_semester').val($(this).data('kode_semester'));
@@ -141,6 +139,9 @@
         $(document).on('click', '.delete', function() {
           $('#iddata').val($(this).data('id'));
         });
+
+
+});
 
 </script>
 

@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-              <form method="POST" action="{{route('admin_semester.add')}}">
+              <form method="POST" action="{{route('admin_semester.insert')}}">
                   @csrf
                     <div class="form-group"><!--Separator Busway-->
                     <label for="staticEmail" class="col-form-label"><strong>Tahun Ajaran</strong></label>

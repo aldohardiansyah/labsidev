@@ -1,66 +1,49 @@
-@extends('templates/template')
-@section('title', 'Tambah Data Informasi')
+<div class="modal fade bd-example-modal-lg" id="modal-addinfo" >
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Informasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-@section('content')
-
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-            <hr>
-            <h5 class=""><center><strong>Tambah Data Kelas</strong></center></h5>
-            <hr>
-            </div>
-            <div class="col-lg-4"></div>
-        </div>
-
-        <div class="mt-4 mb-2">
-            <div class="row">
-
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-                <div class="card border-secondary mb-3">
-                  <div class="card-header" align="center">Tambah Data Kelas</div>
-                  <div class="card-body">
-                      <div class="form-group mt-3">
-                          <form method="POST" action="{{route('admin_kelas.insert')}}">
-                  @csrf
+                    <form method="POST" action="{{route('admin_informasi.insert')}} enctype="multipart/form-data"">
+                    @csrf
+                      <div class="form-group"><!--Separator Busway-->
+                      <label for="staticEmail" class="col-form-label"><strong>Judul Informasi</strong></label>
+                          <input class="form-control" placeholder="Masukan Kelas, ex: 4KA22"  id="addkelas" name="kelas" required>
+                      </div><!--Busway Separator-->
+                      <div class="form-group"><!--Separator Busway-->
+                        <label for="staticEmail" class="col-form-label"><strong>Kategori Informasi</strong></label>
+                            <select class="form-control" name="jurusan" required  >
+                                <option disabled selected>Pilih Kategori</option>
+                                <option value="Public">Public</option>
+                                <option value="Asisten">Asisten</option>
+                            </select>
+                      </div><!--Busway Separator-->
+                      <div class="form-group"><!--Separator Busway-->
+                        <label for="staticEmail" class="col-form-label"><strong>Gambar Tajuk</strong></label>
+                            <input class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" type="file" name="photo">
+                            <small id="fileHelp" class="form-text text-muted">Fomat File JPG, <strong>ukuran max 2mb</strong></small>
+                      </div><!--Busway Separator-->
                     <div class="form-group"><!--Separator Busway-->
-                    <label for="staticEmail" class="col-form-label"><strong>Kelas</strong></label>
-                        <input class="form-control" placeholder="Masukan Kelas, ex: 4KA22"  id="addkelas" name="kelas" required>
-                    </div><!--Busway Separator-->
-                    <div class="form-group"><!--Separator Busway-->
-                      <label for="staticEmail" class="col-form-label"><strong>Jurusan</strong></label>
-                          <select class=" selectdua form-control" name="jurusan" required  >
-                              <option disabled selected>Pilih Jurusan</option>
-                              {{-- @foreach ($datajurusan as $datajurusan)
-                                  <option value="{{$datajurusan->id}}">{{$datajurusan->jurusan}}</option>
-                              @endforeach --}}
-                          </select>
-                    </div><!--Busway Separator-->
-                    <div class="form-group"><!--Separator Busway-->
-                      <label for="staticEmail" class="col-form-label"><strong>Kampus</strong></label>
-                          <input class="form-control" placeholder="Masukan Kampus"  id="kampus" name="kampus" required>
+                        <label for="staticEmail" class="col-form-label"><strong>Isi Informasi</strong></label>
+                        <textarea class="ckeditor" id="ckeditor" cols="10" rows="11">
+                        </textarea>
                     </div><!--Busway Separator-->
 
-                    <hr class="mt-5">
-                    <center>
-                        <button type="submit" class="btn btn-success">Simpan</button>
-                        <a href="{{route('admin_kelas')}}" class="btn btn-secondary">Batal</a>
-                    </center>
-                </form>
-                      </div>
+                    <hr class="mt-2">
+                    <div class="mb-3">
+                        <center>
+                            <button type="submit" class="btn btn-success">Simpan</button>
+                            <a href="{{route('admin_kelas')}}" class="btn btn-secondary">Batal</a>
+                        </center>
+                    </div>
+                    </form>
 
-                  </div>
                 </div>
-            </div>
-            <div class="col-lg-3"></div>
         </div>
-        </div>
-
     </div>
-    <!-- /.container -->
-
-@endsection
+</div>
