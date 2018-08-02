@@ -67,7 +67,7 @@ Route::get('/admin/kelas', 'admin\AdminKelasController@index')->name('admin_kela
 
 Route::get('/admin/praktikum', 'admin\AdminPraktikumController@index')->name('admin_praktikum');
     Route::get('/admin/praktikum/add', 'admin\AdminPraktikumController@add')->name('admin_praktikum.add');
-    Route::get('/admin/praktikum/detail{id}', 'admin\AdminPraktikumController@detail')->name('admin_praktikum.detail');
+    Route::get('/admin/praktikum/detail/{id}', 'admin\AdminPraktikumController@detail')->name('admin_praktikum.detail');
     Route::post('/admin/praktikum/insert', 'admin\AdminPraktikumController@insert')->name('admin_praktikum.insert');
     Route::get('/admin/praktikum/update/{id}', 'admin\AdminPraktikumController@update')->name('admin_praktikum.update');
     Route::post('/admin/praktikum/edit', 'admin\AdminPraktikumController@edit')->name('admin_praktikum.edit');
