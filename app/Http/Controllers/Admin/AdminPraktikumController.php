@@ -15,7 +15,7 @@ class AdminPraktikumController extends Controller
 
     public function index()
     {
-        $data = Praktikum::with('jurusan')->get();
+        $data = Praktikum::with('jurusan')->orderBy('matkul')->get();
         return view('admin.praktikum.praktikum', get_defined_vars());
     }
 
@@ -46,9 +46,7 @@ class AdminPraktikumController extends Controller
             'semester'=>  $request['semester'],
             'id_jurusan'=>  $request['jurusan'],
             'tingkat'=>  $request['tingkat'],
-            'materi'=>  $request['materi'],
-            'tgl_mulai'=>  $request['tgl_mulai'],
-            'tgl_selesai'=>  $request['tgl_selesai']
+            'materi'=>  $request['materi']
         ]);
         //Buat Notif
         $matkul = $request['matkul'];
@@ -76,9 +74,7 @@ class AdminPraktikumController extends Controller
             'semester'=>  $request['semester'],
             'id_jurusan'=>  $request['jurusan'],
             'tingkat'=>  $request['tingkat'],
-            'materi' =>  $request['materi'],
-            'tgl_mulai' =>  $request['tgl_mulai'],
-            'tgl_selesai' =>  $request['tgl_selesai']
+            'materi' =>  $request['materi']
         ]);
 
         //Buat Notif

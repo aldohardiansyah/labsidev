@@ -24,7 +24,7 @@
                           <i class="fa fa-home fa-1x"></i>
                       </div>
                       <div class="col-sm-10 ">
-                          <p align="left">Komplek Kejaksaan Agung Pasar Minggu Blok E.17</p>
+                          <p align="left">{{$data->alamat}}</p>
                       </div>
                   </div>
                   <div class="row">
@@ -32,7 +32,7 @@
                           <i class="fa fa-phone fa-1x"></i>
                       </div>
                       <div class="col-sm-10 ">
-                          <p align="left">085888114229</p>
+                          <p align="left">{{$data->no_tlp}}</p>
                       </div>
                   </div>
                   <div class="row">
@@ -40,7 +40,7 @@
                           <i class="fa fa-envelope-open  fa-1x"></i>
                       </div>
                       <div class="col-sm-10 ">
-                          <p align="left">AFlyingStuka@Gmail.com</p>
+                          <p align="left">{{$data->email}}</p>
                       </div>
                   </div>
 

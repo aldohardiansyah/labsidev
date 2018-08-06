@@ -15,7 +15,7 @@ class PendaftaranController extends Controller
         return view('pendaftaran', get_defined_vars());
     }
 
-    public function save(Request $request)
+    public function insert(Request $request)
     {   $semesteraktif=Semester::where('status',1)->first();//CEKSEMESTER AKTIF
 
         $this->validate($request, [

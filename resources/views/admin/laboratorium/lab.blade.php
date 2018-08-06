@@ -24,7 +24,7 @@
           </div>
           @endif
           @if (session('status'))
-          <div class="alert alert-primary">
+          <div class="alert alert-success">
             <center>{{ session('status') }}<center>
           </div>
           @endif
@@ -39,7 +39,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Data Praktikum</button>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-1">Tambah Data Laboratorium</button>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
@@ -65,34 +65,33 @@
                     </tr>
                   </thead>
                   <tbody id="isi">
-                    <tr>
-                      <td>1</td>
-                      <td>Kampus E</td>
-                      <td align="center">531</td>
-                      <td>Letaknya di Gedung 5 Lantai 3 Ruangan 3</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Kampus E</td>
-                      <td  align="center">533</td>
-                      <td>Letaknya di Gedung 5 Lantai 3 Ruangan 3</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
+                      <?php $no = 0;?>
+                      @foreach ($data as $data)
+                          <?php $no++ ;?>
+                          <tr>
+                            <td>{{$no}}</td>
+                            <td align="center">{{$data->kampus}}</td>
+                            <td align="center">{{$data->laboratorium}}</td>
+                            <td>{{$data->keterangan}}</td>
+                            <td align="center">
+                                <span>
+                                      <button class="btn btn-success btn-xsm edit" type="button"
+                                      data-id="{{ $data->id }}"
+                                      data-kampus="{{ $data->kampus }}"
+                                      data-laboratorium="{{ $data->laboratorium }}"
+                                      data-keterangan="{{ $data->keterangan }}"
+                                      data-toggle="modal" data-target="#modal-2">
+                                      <i class="fa fa-pencil-alt"></i></button>
+                                </span>
+                                <span>
+                                    <button class="btn btn-danger btn-xsm delete" type="button"
+                                    data-id="{{ $data->id }}"
+                                    data-toggle="modal" data-target="#modal-3">
+                                      <i class="fa fa-trash-alt"></i></button>
+                                </span>
+                            </td>
+                          </tr>
+                      @endforeach
                   </tbody>
                 </table>
             </div>
@@ -106,11 +105,17 @@
 <!-- /.container -->
 
 
+
+@include('admin.laboratorium.lab_add')
+@include('admin.laboratorium.lab_edit')
+@include('admin.laboratorium.lab_delete')
+
+
 <script type="text/javascript">
 
 
-    document.getElementById('cari').value = '';
-    $(document).ready(function(){
+document.getElementById('cari').value = '';
+$(document).ready(function(){
 
         //Buat Nyari Data Tabel
          $("#cari").on("keyup", function() {
@@ -121,7 +126,21 @@
          });
 
 
+        //Parsing Data Ke Edit
+        $(document).on('click', '.edit', function() {
+          $('#editid').val($(this).data('id'));
+          $('#editkampus').val($(this).data('kampus'));
+          $('#editlaboratorium').val($(this).data('laboratorium'));
+          $('#editketerangan').val($(this).data('keterangan'));
         });
+
+
+        //Delete Modal Dialog
+        $(document).on('click', '.delete', function() {
+          $('#iddata').val($(this).data('id'));
+        });
+
+    });
 
 </script>
 

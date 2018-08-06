@@ -56,14 +56,14 @@
                                 <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Semester</strong></label>
                                     <label for="staticEmail" class="col-sm-3 col-form-label">{{$data->semester}}</label>
                             </div><!--Busway Separator-->
-
+{{-- 
                             <div class="form-group row"><!--Separator Busway-->
                                 <div class="col-sm-1"></div>
                                 <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Mulai</strong></label>
                                     <label for="staticEmail" class="col-sm-3 col-form-label">{{date('d-m-Y', strtotime($data->tgl_mulai))}}</label>
                                 <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Selesai</strong></label>
                                     <label for="staticEmail" class="col-sm-3 col-form-label">{{date('d-m-Y', strtotime($data->tgl_selesai))}}</label>
-                            </div><!--Busway Separator-->
+                            </div><!--Busway Separator--> --}}
 
                             <div class="form-group row"><!--Separator Busway-->
                                 <div class="col-sm-1"></div>

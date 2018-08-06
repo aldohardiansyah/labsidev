@@ -64,8 +64,6 @@
                       <th scope="col">Kode Praktikum</th>
                       <th scope="col">Tingkat</th>
                       <th scope="col">Semester</th>
-                      <th scope="col">Tanggal Mulai</th>
-                      <th scope="col">Tanggal Selesai</th>
                       {{-- <th scope="col">Materi</th> --}}
                       <th scope="col" width="15%">Proses</th>
                     </tr>
@@ -81,8 +79,6 @@
                             <td>{{$data->kode_praktikum}}</td>
                             <td>{{$data->tingkat}}</td>
                             <td>{{$data->semester}}</td>
-                            <td>{{date('d-m-Y', strtotime($data->tgl_mulai))}}</td>
-                            <td>{{date('d-m-Y', strtotime($data->tgl_selesai))}}</td>
                             {{-- <td>{{$data->materi}}</td> --}}
                             <td align="center">
                                 <span>
@@ -140,8 +136,6 @@ $(document).ready(function(){
           $('#kodepraktikum').val($(this).data('kodepraktikum'));
           $('#jurusan').val($(this).data('jurusan'));
           $('#tingkat').val($(this).data('tingkat'));
-          $('#tglmulai').val($(this).data('tglmulai'));
-          $('#tglselesai').val($(this).data('tglselesai'));
           $('#semester').val($(this).data('semester'));
           $('#materi').val($(this).data('materi'));
         });

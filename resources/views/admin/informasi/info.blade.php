@@ -62,7 +62,7 @@
                       <th scope="col" width="15%">Judul</th>
                       <th scope="col">Isi</th>
                       <th scope="col">Kategori</th>
-                      <th scope="col" width="15%">Proses</th>
+                      <th scope="col">Proses</th>
                     </tr>
                   </thead>
                   <tbody id="isi">
@@ -76,13 +76,16 @@
                               <td>{{$data->kategori}}</td>
                               <td align="center">
                                   <span>
-                                        <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
+                                      <a href="{{route('admin_informasi.detail', $data->id)}}" class="btn btn-primary mb-1 btn-xsm"> <i class="fa fa-eye"></i></a>
                                   </span>
-                                  <span>
+                                  {{-- <span>
                                         <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                                  </span>
+                                  </span> --}}
                                   <span>
-                                        <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
+                                      <button class="btn btn-danger btn-xsm delete mb-1" type="button"
+                                      data-id="{{ $data->id }}"
+                                      data-toggle="modal" data-target="#modal-3">
+                                        <i class="fa fa-trash-alt"></i></button>
                                   </span>
                               </td>
                           </tr>
@@ -101,6 +104,8 @@
 
 
 @include('admin.informasi.info_add')
+@include('admin.informasi.info_delete')
+
 
 
 <script type="text/javascript">
@@ -115,6 +120,11 @@ $(document).ready(function(){
            $("#isi tr").filter(function() {
              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
            });
+         });
+
+         //Delete Modal Dialog
+         $(document).on('click', '.delete', function() {
+           $('#iddata').val($(this).data('id'));
          });
 
 

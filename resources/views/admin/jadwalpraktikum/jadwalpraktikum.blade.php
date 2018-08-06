@@ -14,6 +14,20 @@
 
         </div>
         <hr>
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          @if (session('status'))
+          <div class="alert alert-success">
+            <center>{{ session('status') }}<center>
+          </div>
+          @endif
     </div>
 
     <div class="row">
@@ -25,7 +39,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Jadwal Asisten</button>
+            <a href="{{route('admin_jadwalpraktikum.add')}}"  class="btn btn-outline-primary">Tambah Jadwal Praktikum</a>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
@@ -56,7 +70,32 @@
                     </tr>
                   </thead>
                   <tbody id="isi">
-                    <tr>
+                      <?php $no = 0;?>
+                        @foreach ($data as $data) <?php $no++ ;?>
+                            <tr>
+                              <td>{{$no}}</td>
+                              <td>{{$data->kelas->kelas}}</td>
+                              <td>{{$data->kelas->kampus}}</td>
+                              <td>{{$data->hari}}</td>
+                              <td>{{$data->shift}}</td>
+                              <td>{{$data->jam_mulai}} sd {{$data->jam_selesai}}</td>
+                              <td>{{$data->laboratorium->laboratorium}}</td>
+                              <td>{{$data->praktikum->kode_praktikum}}</td>
+                              <td>{{$data->praktikum->matkul}}</td>
+                              <td align="center">
+                                  <span>
+                                        <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
+                                  </span>
+                                  <span>
+                                        <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
+                                  </span>
+                                  <span>
+                                        <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
+                                  </span>
+                              </td>
+                            </tr>
+                        @endforeach
+                    {{-- <tr>
                       <td>1</td>
                       <td>4KA01</td>
                       <td>Depok</td>
@@ -77,95 +116,7 @@
                                 <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
                           </span>
                       </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>4KA02</td>
-                      <td>Depok</td>
-                      <td>Senin</td>
-                      <td>2</td>
-                      <td>09.30-11.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td>Pemrograman Berbasis Web</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>4KA03</td>
-                      <td>Depok</td>
-                      <td>Senin</td>
-                      <td>3</td>
-                      <td>11.30-13.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td>Pemrograman Berbasis Web</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>4KA04</td>
-                      <td>Depok</td>
-                      <td>Senin</td>
-                      <td>4</td>
-                      <td>13.30-15.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td>Pemrograman Berbasis Web</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>4KA05</td>
-                      <td>Depok</td>
-                      <td>Senin</td>
-                      <td>5</td>
-                      <td>15.30-17.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td>Pemrograman Berbasis Web</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
+                    </tr> --}}
                   </tbody>
                 </table>
             </div>

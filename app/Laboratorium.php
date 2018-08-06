@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-//MODEL
-use app\Users;
 
-class Informasi extends Authenticatable
+class Laboratorium extends Authenticatable
 {
     use Notifiable;
 
@@ -17,16 +15,12 @@ class Informasi extends Authenticatable
      * @var array
      */
 
-    protected $table = 'informasi';
+    protected $table = 'laboratorium';
     public $timestamps = false;
     protected $fillable = [
-        'judul',
-        'photo',
-        'slug',
-        'kategori',
-        'id_user',
-        'tgl_buat',
-        'isi'
+        'laboratorium',
+        'kampus',
+        'keterangan'
 
     ];
 
@@ -38,13 +32,4 @@ class Informasi extends Authenticatable
     protected $hidden = [
         'id',
     ];
-
-
-
-    public function user() {
-      return $this->hasOne(User::class,'id','id_user');
-    }
-
-
-
 }

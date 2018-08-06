@@ -29,7 +29,7 @@ Route::get('/admin/login','BerandaController@index')->name('home');
 //MAIN ROUTES//
 Route::get('/', 'BerandaController@index')->name('beranda');
 
-Route::get('/info', 'InfoController@index')->name('info');
+Route::get('/informasi', 'InfoController@index')->name('informasi');
 
 Route::get('/jadwal', 'JadwalController@index')->name('jadwal');
 
@@ -52,7 +52,7 @@ Route::get('/admin/asisten', 'admin\AdminAsistenController@index')->name('admin_
     Route::post('/admin/asisten/delete', 'admin\AdminAsistenController@delete')->name('admin_asisten.delete');
 
 Route::get('/admin/semester', 'admin\AdminSemesterController@index')->name('admin_semester');
-    Route::post('/admin/semester/add', 'admin\AdminSemesterController@insert')->name('admin_semester.insert');
+    Route::post('/admin/semester/insert', 'admin\AdminSemesterController@insert')->name('admin_semester.insert');
     Route::post('/admin/semester/edit', 'admin\AdminSemesterController@edit')->name('admin_semester.edit');
     Route::post('/admin/semester/delete', 'admin\AdminSemesterController@delete')->name('admin_semester.delete');
 
@@ -74,13 +74,23 @@ Route::get('/admin/praktikum', 'admin\AdminPraktikumController@index')->name('ad
     Route::post('/admin/praktikum/delete', 'admin\AdminPraktikumController@delete')->name('admin_praktikum.delete');
 
 Route::get('/admin/laboratorium', 'admin\AdminLaboratoriumController@index')->name('admin_laboratorium');
+    Route::post('/admin/laboratorium/insert', 'admin\AdminLaboratoriumController@insert')->name('admin_laboratorium.insert');
+    Route::post('/admin/laboratorium/edit', 'admin\AdminLaboratoriumController@edit')->name('admin_laboratorium.edit');
+    Route::post('/admin/laboratorium/delete', 'admin\AdminLaboratoriumController@delete')->name('admin_laboratorium.delete');
 
 Route::get('/admin/jadwalpraktikum', 'admin\AdminJadwalPraktikumController@index')->name('admin_jadwalpraktikum');
+    Route::get('/admin/jadwalpraktikum/add', 'admin\AdminJadwalPraktikumController@add')->name('admin_jadwalpraktikum.add');
+    Route::post('/admin/jadwalpraktikum/insert', 'admin\AdminJadwalPraktikumController@insert')->name('admin_jadwalpraktikum.insert');
 
 Route::get('/admin/jadwalasisten', 'admin\AdminJadwalAsistenController@index')->name('admin_jadwalasisten');
+    Route::get('/admin/jadwalasisten/add', 'admin\AdminJadwalAsistenController@add')->name('admin_jadwalasisten.add');
+    Route::get('/admin/jadwalasisten/add_detail1/{id}', 'admin\AdminJadwalAsistenController@add_detail1')->name('admin_jadwalasisten.add_detail1');
+    Route::get('/admin/jadwalasisten/add_detail2/{id}', 'admin\AdminJadwalAsistenController@add_detail2')->name('admin_jadwalasisten.add_detail2');
 
 Route::get('/admin/informasi', 'admin\AdminInformasiController@index')->name('admin_informasi');
     Route::post('/admin/informasi/insert', 'admin\AdminInformasiController@insert')->name('admin_informasi.insert');
+    Route::get('/admin/informasi/detail/{id}', 'admin\AdminInformasiController@detail')->name('admin_informasi.detail');
+    Route::post('/admin/informasi/delete', 'admin\AdminInformasiController@delete')->name('admin_informasi.delete');
 
 
 Route::get('/admin/pendaftaran', 'admin\AdminPendaftaranController@index')->name('admin_pendaftaran');

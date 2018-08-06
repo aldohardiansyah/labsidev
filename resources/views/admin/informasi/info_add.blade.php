@@ -9,15 +9,16 @@
       </div>
       <div class="modal-body">
 
-                    <form method="POST" action="{{route('admin_informasi.insert')}} enctype="multipart/form-data"">
+                    <form method="POST" action="{{route('admin_informasi.insert')}}" enctype="multipart/form-data">
                     @csrf
+                    <fieldset>
                       <div class="form-group"><!--Separator Busway-->
                       <label for="staticEmail" class="col-form-label"><strong>Judul Informasi</strong></label>
-                          <input class="form-control" placeholder="Masukan Kelas, ex: 4KA22"  id="addkelas" name="kelas" required>
+                          <input class="form-control" placeholder="Masukan Kelas, ex: 4KA22"  id="informasi" name="judul" required>
                       </div><!--Busway Separator-->
                       <div class="form-group"><!--Separator Busway-->
                         <label for="staticEmail" class="col-form-label"><strong>Kategori Informasi</strong></label>
-                            <select class="form-control" name="jurusan" required  >
+                            <select class="form-control" name="kategori" required  >
                                 <option disabled selected>Pilih Kategori</option>
                                 <option value="Public">Public</option>
                                 <option value="Asisten">Asisten</option>
@@ -30,7 +31,7 @@
                       </div><!--Busway Separator-->
                     <div class="form-group"><!--Separator Busway-->
                         <label for="staticEmail" class="col-form-label"><strong>Isi Informasi</strong></label>
-                        <textarea class="ckeditor" id="ckeditor" cols="10" rows="11">
+                        <textarea class="ckeditor" id="ckeditor" cols="10" rows="11" name="isi">
                         </textarea>
                     </div><!--Busway Separator-->
 
@@ -38,9 +39,10 @@
                     <div class="mb-3">
                         <center>
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <a href="{{route('admin_kelas')}}" class="btn btn-secondary">Batal</a>
+                            <a href="{{route('admin_informasi')}}" class="btn btn-secondary">Batal</a>
                         </center>
                     </div>
+                    <fieldset>
                     </form>
 
                 </div>

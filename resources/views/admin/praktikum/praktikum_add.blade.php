@@ -86,7 +86,7 @@
                                     <small id="fileHelp" class="form-text text-muted">Semester praktikum berlangsung</small>
                                 </div>
                             </div><!--Busway Separator-->
-
+{{-- 
                             <div class="form-group row"><!--Separator Busway-->
                                 <div class="col-sm-1"></div>
                                 <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Tanggal Mulai</strong></label>
@@ -97,7 +97,7 @@
                                 <div class="col-sm-3">
                                     <input class="form-control" type="date"  id="example-date-input"  name="tgl_selesai" placeholder="Masukan Tanggal Selesai">
                                 </div>
-                            </div><!--Busway Separator-->
+                            </div><!--Busway Separator--> --}}
 
                             <div class="form-group row"><!--Separator Busway-->
                                 <div class="col-sm-1"></div>

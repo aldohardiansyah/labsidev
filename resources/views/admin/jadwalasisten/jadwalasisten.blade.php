@@ -25,7 +25,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-3">
-            <button type="button" class="btn btn-outline-primary">Tambah Jadwal Praktikum</button>
+            <a href="{{route('admin_jadwalasisten.add')}}"  class="btn btn-outline-primary">Tambah Jadwal Asisten</a>
         </div>
         <div class="col-lg-6"></div> <!--separatorbusway-->
         <div class="col-lg-3">
@@ -46,17 +46,41 @@
                       <th scope="col" width="5%">No.</th>
                       <th scope="col">Nama Asisten</th>
                       <th scope="col">Jabatan</th>
-                      <th scope="col" width="10%">Kelas Praktikum</th>
+                      <th scope="col" width="10%">Kelas</th>
+                      <th scope="col">Praktikum</th>
                       <th scope="col">Hari</th>
                       <th scope="col">Shift</th>
-                      <th scope="col">Jam</th>
                       <th scope="col">Laboratorium</th>
-                      <th scope="col">Kode Praktikum</th>
                       <th scope="col" width="15%">Proses</th>
                     </tr>
                   </thead>
                   <tbody  id="isi">
-                    <tr>
+                      <?php $no = 0;?>
+                      @foreach ($data as $data) <?php $no++ ;?>
+                      <tr>
+                          <td>{{$no}}</td>
+                          <td>{{$data->asisten['nama_lengkap']}}</td>
+                          <td>{{$data->jabatan_tugas}}</td>
+                          <td>{{$data->jadwalpraktikum->kelas->kelas}}</td>
+                          <td>{{$data->jadwalpraktikum->praktikum->kode_praktikum}}</td>
+                          <td>{{$data->jadwalpraktikum->hari}}</td>
+                          <td>{{$data->jadwalpraktikum->shift}}</td>
+                          <td>{{$data->jadwalpraktikum->laboratorium->laboratorium}}</td>
+
+                          <td align="center">
+                              <span>
+                                    <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
+                              </span>
+                              <span>
+                                    <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
+                              </span>
+                              <span>
+                                    <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
+                              </span>
+                          </td>
+                      </tr>
+                    @endforeach
+                    {{-- <tr>
                       <td>1</td>
                       <td>Aldo Hardiansyah</td>
                       <td>PJ</td>
@@ -77,74 +101,7 @@
                                 <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
                           </span>
                       </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Shani Indira Natio</td>
-                      <td>Ketua Asisten</td>
-                      <td>4KA01</td>
-                      <td>Senin</td>
-                      <td>1</td>
-                      <td>07.30-09.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Aninditha Rahma Cahyadi</td>
-                      <td>Asisten</td>
-                      <td>4KA01</td>
-                      <td>Senin</td>
-                      <td>1</td>
-                      <td>07.30-09.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Amelia Yuwono</td>
-                      <td>Asisten</td>
-                      <td>4KA01</td>
-                      <td>Senin</td>
-                      <td>1</td>
-                      <td>07.30-09.30</td>
-                      <td>Lab H408</td>
-                      <td>PBW</td>
-                      <td align="center">
-                          <span>
-                                <button class="btn btn-primary btn-xsm" type="submit"><i class="fa fa-eye"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-success btn-xsm" type="submit"><i class="fa fa-pencil-alt"></i></button>
-                          </span>
-                          <span>
-                                <button class="btn btn-danger btn-xsm" type="submit"><i class="fa fa-trash-alt"></i></button>
-                          </span>
-                      </td>
-                    </tr>
-
+                    </tr> --}}
                   </tbody>
                 </table>
             </div>

@@ -11,7 +11,7 @@
               <a class="nav-link" href="{{route('beranda')}}"><i class="fa fa-home" style="color: #8E8C84"></i> Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('info')}}"><i class="fa fa-bullhorn" style="color: #8E8C84"></i> Informasi</a>
+              <a class="nav-link" href="{{route('informasi')}}"><i class="fa fa-bullhorn" style="color: #8E8C84"></i> Informasi</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownPraktikum" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
